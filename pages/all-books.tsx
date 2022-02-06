@@ -1,3 +1,4 @@
+import Image from "next/image";
 function AllBooks() {
   return (
     <>
@@ -5,22 +6,135 @@ function AllBooks() {
         {/* We've used 3xl here, but feel free to try other max-widths based on your needs */}
         <div className="max-w-3xl mx-auto">
           {/* Text */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col">
             <h1 className="text-3xl font-serif text-zinc-900 italic font-medium">
               All Books
             </h1>
-            <p className="text-gray-700 mt-10">
-              We're building an evergrowing list of translated text...
+            <p className="text-gray-700 mt-10 center">
+              We're building an ever-growing list of text from{" "}
+              <span className="italic text-gray-600">
+                Suraj Prakaash Granth
+              </span>
             </p>
           </div>
+
+          {/* Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
+            <div>
+              <div className="bg-red-30 h-80 bg-gray-300 relative">
+                <Image
+                  src="https://i.ibb.co/LNvxVQW/Screen-Shot-2022-02-05-at-1-27-14-PM.png"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
+              <div className="my-3">
+                <h3 className="text-lg font-serif">Nanak Prakaash (Vol. 1)</h3>
+                <p className="my-1 text-sm">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+                  a arcu sed mauris feugiat luctus sit amet ut.
+                </p>
+
+                <button className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all">
+                  Read
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <div className="bg-red-30 h-80 bg-gray-300"></div>
+              <div className="my-3">
+                <h3 className="text-lg font-serif">Nanak Prakaash (Vol. 2)</h3>
+                <p className="my-1 text-sm">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+                  a arcu sed mauris feugiat luctus sit amet ut.
+                </p>
+
+                <button className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all">
+                  Read
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <div className="bg-red-30 h-80 bg-gray-300"></div>
+              <div className="my-3">
+                <h3 className="text-lg font-serif">Raas 1</h3>
+                <p className="my-1 text-sm">
+                  This is piece of text that may include more information! Since
+                  it is also pretty long we maybe we can add some ellipses.
+                </p>
+
+                <button className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all">
+                  Read
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <div className="bg-red-30 h-80 bg-gray-300 relative"></div>
+              <div className="my-3">
+                <h3 className="text-lg font-serif">Raas 2</h3>
+                <p className="my-1 text-sm">
+                  This is piece of text that may include more information! Since
+                  it is also pretty long we maybe we can add some ellipses.
+                </p>
+
+                <button className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all">
+                  Read
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <div className="bg-red-30 h-80 bg-gray-300 relative"></div>
+              <div className="my-3">
+                <h3 className="text-lg font-serif">Book Name</h3>
+                <p className="my-1 text-sm">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+                  a arcu sed mauris feugiat luctus sit amet ut.{" "}
+                </p>
+
+                <button className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all">
+                  Read
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <div className="bg-red-30 h-80 bg-gray-300 relative"></div>
+              <div className="my-3">
+                <h3 className="text-lg font-serif">Book Name</h3>
+                <p className="my-1 text-sm">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+                  a arcu sed mauris feugiat luctus sit amet ut.{" "}
+                </p>
+
+                <button className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all">
+                  Read
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* More Books to be Added Soon */}
+
+          <div className="flex justify-center align-center py-12">
+            <div className="bg-gray-300 py-20 px-10 md:w-1/2">
+              <p className="font-serif text-2xl text-center md:text-left">
+                More Books to Be Added Soon
+              </p>
+
+              <div className="mt-5 text-lg">
+                <p className="font-bold">Sign Up for Updates</p>
+                <p>
+                  We’ll let you know when new books and chapters have been added
+                  to the site.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="snap-x snap-mandatory overflow-scroll w-96 mx-auto">
-        <div className="snap-center w-80 h-96 bg-slate-100"></div>
-        <div className="snap-center w-80 h-96 bg-slate-200"></div>
-        <div className="snap-center w-80 h-96 bg-slate-300"></div>
-        <div className="snap-center w-80 h-96 bg-slate-400"></div>
-        <div className="snap-center w-80 h-96 bg-slate-500"></div>
       </div>
     </>
   );
