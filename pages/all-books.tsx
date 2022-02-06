@@ -132,6 +132,20 @@ function AllBooks() {
                   to the site.
                 </p>
               </div>
+
+              <form action="#" className="mt-5 flex flex-col gap-3">
+                <input
+                  type="text"
+                  placeholder="Enter an Email Address"
+                  className="bg-gray-100 p-2"
+                />
+                <button
+                  type="submit"
+                  className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all"
+                >
+                  Submit
+                </button>
+              </form>
             </div>
           </div>
         </div>
