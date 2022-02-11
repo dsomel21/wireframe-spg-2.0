@@ -11,7 +11,7 @@ function AllBooks() {
               All Books
             </h1>
             <p className="text-gray-700 mt-10 center">
-              We're building an ever-growing list of text from{" "}
+              We&#39;re building an ever-growing list of text from{" "}
               <span className="italic text-gray-600">
                 Suraj Prakaash Granth
               </span>
@@ -26,16 +26,17 @@ function AllBooks() {
                   src="https://i.ibb.co/LNvxVQW/Screen-Shot-2022-02-05-at-1-27-14-PM.png"
                   layout="fill"
                   objectFit="contain"
+                  alt="Nanak Prakash Book cover photo"
                 />
               </div>
-              <div className="my-3">
+              <div className="my-3 space-y-2">
                 <h3 className="text-lg font-serif">Nanak Prakaash (Vol. 1)</h3>
-                <p className="my-1 text-sm">
+                <p className="text-sm">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
                   a arcu sed mauris feugiat luctus sit amet ut.
                 </p>
 
-                <button className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all">
+                <button className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all hidden sm:flex">
                   Read
                 </button>
               </div>
@@ -43,14 +44,14 @@ function AllBooks() {
 
             <div>
               <div className="bg-red-30 h-80 bg-gray-300"></div>
-              <div className="my-3">
+              <div className="my-3 space-y-2">
                 <h3 className="text-lg font-serif">Nanak Prakaash (Vol. 2)</h3>
-                <p className="my-1 text-sm">
+                <p className="text-sm">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
                   a arcu sed mauris feugiat luctus sit amet ut.
                 </p>
 
-                <button className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all">
+                <button className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all hidden sm:flex">
                   Read
                 </button>
               </div>
@@ -58,14 +59,14 @@ function AllBooks() {
 
             <div>
               <div className="bg-red-30 h-80 bg-gray-300"></div>
-              <div className="my-3">
+              <div className="my-3 space-y-2">
                 <h3 className="text-lg font-serif">Raas 1</h3>
-                <p className="my-1 text-sm">
+                <p className="text-sm">
                   This is piece of text that may include more information! Since
                   it is also pretty long we maybe we can add some ellipses.
                 </p>
 
-                <button className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all">
+                <button className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all hidden sm:flex">
                   Read
                 </button>
               </div>
@@ -73,14 +74,14 @@ function AllBooks() {
 
             <div>
               <div className="bg-red-30 h-80 bg-gray-300 relative"></div>
-              <div className="my-3">
+              <div className="my-3 space-y-2">
                 <h3 className="text-lg font-serif">Raas 2</h3>
-                <p className="my-1 text-sm">
+                <p className="text-sm">
                   This is piece of text that may include more information! Since
                   it is also pretty long we maybe we can add some ellipses.
                 </p>
 
-                <button className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all">
+                <button className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all hidden sm:flex">
                   Read
                 </button>
               </div>
@@ -88,14 +89,14 @@ function AllBooks() {
 
             <div>
               <div className="bg-red-30 h-80 bg-gray-300 relative"></div>
-              <div className="my-3">
+              <div className="my-3 space-y-2">
                 <h3 className="text-lg font-serif">Book Name</h3>
-                <p className="my-1 text-sm">
+                <p className="text-sm">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
                   a arcu sed mauris feugiat luctus sit amet ut.{" "}
                 </p>
 
-                <button className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all">
+                <button className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all hidden sm:flex">
                   Read
                 </button>
               </div>
@@ -103,14 +104,14 @@ function AllBooks() {
 
             <div>
               <div className="bg-red-30 h-80 bg-gray-300 relative"></div>
-              <div className="my-3">
+              <div className="my-3 space-y-2">
                 <h3 className="text-lg font-serif">Book Name</h3>
-                <p className="my-1 text-sm">
+                <p className="text-sm">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
                   a arcu sed mauris feugiat luctus sit amet ut.{" "}
                 </p>
 
-                <button className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all">
+                <button className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all hidden sm:flex">
                   Read
                 </button>
               </div>
@@ -141,7 +142,7 @@ function AllBooks() {
                 />
                 <button
                   type="submit"
-                  className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all"
+                  className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all hidden sm:flex"
                 >
                   Submit
                 </button>
