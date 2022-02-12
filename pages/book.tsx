@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useState } from "react";
 import ChapterPreview from "./components/ChapterPreview";
 
 const chapters = [
@@ -9,10 +10,23 @@ const chapters = [
   "Guru Nanak Dev Ji's Childhood",
   "Gopaal Paandhe's Message",
 ];
+
 function Book() {
+  interface ChapterInfo {
+    name: string;
+    bookName: string;
+    number: number;
+    longDescription?: string;
+    link: string;
+  }
+  const [openPreview, setOpenPreview] = useState(false);
+  const [chapterInfo, setChapterInfo] = useState<ChapterInfo>(null);
+
   return (
     <>
-      <ChapterPreview shouldOpen={true} />
+      {openPreview && (
+        <ChapterPreview shouldOpen={openPreview} chapter={chapterInfo} />
+      )}
       <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           {/* Header Image */}
@@ -42,11 +56,25 @@ function Book() {
           </div>
 
           {/* Chapters */}
-          {chapters.map((title) => {
+          {chapters.map((title, i) => {
             return (
-              <div className="flex space-x-2 border-black border-b-2 py-4 items-center">
+              <div
+                className="flex space-x-2 border-black border-b-2 py-4 items-center"
+                key={i}
+              >
                 <div className="space-y-3">
-                  <p className="text-lg font-serif font-bold line-clamp-2 mr-5">
+                  <p
+                    className="text-lg font-serif font-bold line-clamp-2 mr-5 cursor-pointer"
+                    onClick={() => {
+                      setOpenPreview(true);
+                      setChapterInfo({
+                        name: title,
+                        link: "/chapter",
+                        number: 1,
+                        bookName: "Nanak Prakaash (Vol. 1)",
+                      });
+                    }}
+                  >
                     {title}
                   </p>
                   <p>

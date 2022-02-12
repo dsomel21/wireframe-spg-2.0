@@ -1,8 +1,12 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-
-export default function ChapterPreview({ shouldOpen = false }) {
+import Link from "next/link";
+interface Props {
+  shouldOpen: boolean;
+  chapter: object;
+}
+export default function ChapterPreview({ shouldOpen, chapter }: Props) {
   const [open, setOpen] = useState(shouldOpen);
 
   return (
@@ -10,7 +14,7 @@ export default function ChapterPreview({ shouldOpen = false }) {
       <Dialog
         as="div"
         className="fixed z-10 inset-0 overflow-y-auto"
-        onClose={setOpen}
+        onClose={() => setOpen(false)}
       >
         <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <Transition.Child
@@ -45,13 +49,13 @@ export default function ChapterPreview({ shouldOpen = false }) {
               <div>
                 <div className="mt-3 text-center sm:mt-5">
                   <Dialog.Description className="text-md font-serif text-gray-500">
-                    Nanak Prakaash (Vol. 1)
+                    {chapter.bookName}
                   </Dialog.Description>
                   <Dialog.Title
                     as="h3"
                     className="text-lg leading-6 font-bold text-gray-900 font-serif mt-1"
                   >
-                    The Avtaar of the Supreme Guru Nanak Dev Ji
+                    {chapter.name}
                   </Dialog.Title>
                   <div className="mt-2 space-y-2">
                     <div className="mx-auto flex items-center justify-center h-52 w-52 rounded-full bg-gray-300 my-5"></div>
@@ -78,13 +82,16 @@ export default function ChapterPreview({ shouldOpen = false }) {
                 </div>
               </div>
               <div className="mt-5 sm:mt-6 sticky bottom-0">
-                <button
-                  type="button"
-                  className="inline-flex justify-center w-full border-2 uppercase bg-white border-black shadow-sm px-4 py-2 text-base font-medium focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-indigo-900 sm:text-sm"
-                  onClick={() => setOpen(false)}
-                >
-                  Read
-                </button>
+                {/* NOTE: DO NOT ACTUALLY DO THIS */}
+                <Link href={chapter.link}>
+                  <button
+                    type="button"
+                    className="inline-flex justify-center w-full border-2 uppercase bg-white border-black shadow-sm px-4 py-2 text-base font-medium focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-indigo-900 sm:text-sm"
+                    onClick={() => setOpen(false)}
+                  >
+                    Read
+                  </button>
+                </Link>
               </div>
             </div>
           </Transition.Child>
