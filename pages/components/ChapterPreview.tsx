@@ -41,7 +41,7 @@ export default function ChapterPreview({ shouldOpen = false }) {
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="inline-block align-bottom bg-white rounded-t-lg px-4 pt-5 h-[612px] pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6 fixed bottom-0 overflow-y-auto">
+            <div className="inline-block align-bottom bg-white rounded-t-lg px-4 pt-5 h-[612px] pb-4 text-left overflow-hidden shadow-xl transform transition-all fixed bottom-0 sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6 sm:static sm:rounded-lg lg:max-w-xl overflow-y-auto">
               <div>
                 <div className="mt-3 text-center sm:mt-5">
                   <Dialog.Description className="text-md font-serif text-gray-500">
@@ -53,71 +53,26 @@ export default function ChapterPreview({ shouldOpen = false }) {
                   >
                     The Avtaar of the Supreme Guru Nanak Dev Ji
                   </Dialog.Title>
-                  <div className="mt-2">
+                  <div className="mt-2 space-y-2">
                     <div className="mx-auto flex items-center justify-center h-52 w-52 rounded-full bg-gray-300 my-5"></div>
-                    <p className="text-sm text-gray-500">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Consequatur amet labore.
+                    <p className="text-md text-gray-800 text-justify">
+                      The occasion of the first full moon night during the lunar
+                      month of Kartik, marks a very auspicious occasion for not
+                      only the 'Sikh' faith, but for all other faiths in this
+                      world.
                     </p>
-                    <p className="text-sm text-gray-500">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Consequatur amet labore.
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Consequatur amet labore.
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Consequatur amet labore.
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Consequatur amet labore.
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Consequatur amet labore.
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Consequatur amet labore.
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Consequatur amet labore.
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Consequatur amet labore.
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Consequatur amet labore.
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Consequatur amet labore.
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Consequatur amet labore.
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Consequatur amet labore.
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Consequatur amet labore.
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Consequatur amet labore.
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Consequatur amet labore.
+                    <p className="text-md text-gray-800 text-justify">
+                      Today's date marks the 550th Anniversary of the
+                      incarnation of Pūran Ŧam Avṯār; Saṯigurū Nanak Dev Ji, who
+                      took birth upon this Earth, to guide us outside of the
+                      dark age of 'Kali Yuga'. Sri Guru Nanak Dev Ji were the
+                      physical embodiment of the divine light of the 'Gurū';
+                      which unparalleled the knowledge of Ek Oaŉkār to the
+                      people of this world. Although the truth has always
+                      existed, exists now, and will continue to exist; Guru
+                      Nanak Dev Ji acted as the messenger of this universal
+                      truth, when the world had seemingly forgotten about
+                      'Dharma'.
                     </p>
                   </div>
                 </div>
@@ -125,10 +80,10 @@ export default function ChapterPreview({ shouldOpen = false }) {
               <div className="mt-5 sm:mt-6 sticky bottom-0">
                 <button
                   type="button"
-                  className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
+                  className="inline-flex justify-center w-full border-2 uppercase bg-white border-black shadow-sm px-4 py-2 text-base font-medium focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-indigo-900 sm:text-sm"
                   onClick={() => setOpen(false)}
                 >
-                  Go back to dashboard
+                  Read
                 </button>
               </div>
             </div>
