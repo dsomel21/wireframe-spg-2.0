@@ -45,7 +45,7 @@ export default function ChapterPreview({ shouldOpen, chapter }: Props) {
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="inline-block align-bottom bg-white rounded-t-lg px-4 pt-5 h-[612px] pb-4 text-left overflow-hidden shadow-xl transform transition-all fixed bottom-0 sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6 sm:static sm:rounded-lg lg:max-w-xl overflow-y-auto">
+            <div className="inline-block align-bottom bg-white rounded-t-lg mx-2 px-4 pt-5 h-[612px] pb-4 text-left overflow-hidden shadow-xl transform transition-all fixed bottom-0 sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6 sm:static sm:rounded-lg lg:max-w-xl overflow-y-auto">
               <div>
                 <div className="mt-3 text-center sm:mt-5">
                   <Dialog.Description className="text-md font-serif text-gray-500">

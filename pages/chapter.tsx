@@ -1,6 +1,12 @@
 import content from "../chapterOneContent";
-import { InformationCircleIcon, ArrowLeftIcon } from "@heroicons/react/solid";
+import {
+  InformationCircleIcon,
+  ArrowLeftIcon,
+  NewspaperIcon,
+  CogIcon,
+} from "@heroicons/react/solid";
 import Link from "next/link";
+import RealtedChaptersPreview from "./components/RelatedChaptersPreview";
 
 function Chapter() {
   console.log(content.chhands);
@@ -21,7 +27,6 @@ function Chapter() {
           <div className="h-3 w-4/5 bg-slate-800"></div>
         </div>
       </div>
-
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
@@ -82,6 +87,25 @@ function Chapter() {
           </div>
         </div>
       </div>
+      {/* Bottom Thing */}
+      <div className="fixed bottom-0 w-full bg-white shadow-inner border-t-2 border-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            {/* Menu Bar */}
+            <div className="flex py-3 font-serif text-lg justify-around">
+              <div className="cursor-pointer flex flex-col items-center">
+                <NewspaperIcon className="h-8 w-8 cursor-pointer" />
+                <p className="font-sans text-xs">Chapters</p>
+              </div>
+              <div className="cursor-pointer flex flex-col items-center">
+                <CogIcon className="h-8 w-8 cursor-pointer" />
+                <p className="font-sans text-xs">Settings</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <RealtedChaptersPreview shouldOpen={true} />
     </>
   );
 }
