@@ -28,7 +28,7 @@ function Book() {
         <ChapterPreview shouldOpen={openPreview} chapter={chapterInfo} />
       )}
       {/* Header Picture */}
-      <div className="hidden relative md:flex w-full h-24 bg-red-500"></div>
+      <div className="hidden relative md:flex w-full h-80 bg-gradient-to-b from-[#C4C4C4] to-transparent"></div>
       {/* Page */}
       <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8 lg:my-12">
         <div className="max-w-3xl mx-auto flex flex-col md:max-w-4xl lg:flex-row lg:justify-between lg:space-x-3">
