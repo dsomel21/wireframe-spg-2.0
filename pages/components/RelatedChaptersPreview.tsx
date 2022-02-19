@@ -8,7 +8,7 @@ interface Props {
 }
 
 const nearChapters = [
-  { number: 1, name: "Manglacharan", current: true },
+  { number: 1, name: "Manglacharan" },
   { number: 2, name: "Bishan Singh’s advances towards the land of Kaavroo" },
   { number: 3, name: "The King meets with Guru Ji" },
   { number: 4, name: "From Dhaka: Bulaaki Das and his mother" },
@@ -23,8 +23,11 @@ const nearChapters = [
   { number: 10, name: " The King of Assaam undertaking Guru Ji’s refuge" },
   { number: 11, name: " Prophecizing King Raam’s (father of Rattan Rae) son" },
   { number: 12, name: " The coming of the 10th Sovereign" },
-  { number: 13, name: " Aspirations and preparations for the coming" },
-  { number: 14, name: " Bheekan Shah of Kuhrraam" },
+  {
+    number: 13,
+    name: " Aspirations and preparations for the coming",
+  },
+  { number: 14, name: " Bheekan Shah of Kuhrraam", current: true },
   { number: 15, name: " Bheekan Shah" },
   { number: 16, name: " The devotion of Bheekan Shah" },
   { number: 17, name: " Miracles of the child" },
@@ -73,7 +76,7 @@ export default function RealtedChaptersPreview({ shouldOpen }: Props) {
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="inline-block align-bottom bg-white rounded-t-lg mx-2 px-4 pt-5 h-2/3 pb-4 text-left overflow-hidden shadow-xl transform transition-all fixed bottom-0 sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6 sm:static sm:rounded-lg lg:max-w-xl overflow-y-auto">
+            <div className="inline-block align-bottom bg-white rounded-t-lg mx-2 px-4 pt-5 h-2/3 md:h-[612px] pb-4 text-left overflow-hidden shadow-xl transform transition-all fixed bottom-0 sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6 sm:static sm:rounded-lg lg:max-w-xl overflow-y-auto">
               <div>
                 {/* Back Button */}
                 <div className="flex items-center">
@@ -97,11 +100,12 @@ export default function RealtedChaptersPreview({ shouldOpen }: Props) {
                   <div className="mt-2 space-y-2">
                     {nearChapters.map((chapter) => {
                       return (
-                        <div
-                          className={`flex justify-between items-center h-14 border-b-2 border-black ${
+                        <button
+                          className={`flex justify-between w-full text-left items-center h-14 border-b-2 border-black ${
                             chapter.current && "font-semibold"
                           }`}
                           key={chapter.number}
+                          autoFocus={chapter.current}
                         >
                           <div className="flex items-center w-5/6">
                             <span className="mr-4 text-xs">
@@ -111,8 +115,10 @@ export default function RealtedChaptersPreview({ shouldOpen }: Props) {
                               {chapter.name}
                             </p>
                           </div>
-                          <div className="rounded-full border-4 border-black h-6 w-6"></div>
-                        </div>
+                          {chapter.number <= 4 && (
+                            <div className="rounded-full border-4 border-black h-6 w-6"></div>
+                          )}
+                        </button>
                       );
                     })}
                   </div>
