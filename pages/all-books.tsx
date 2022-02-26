@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import BadgeNew from "./components/BadgeNew";
 function AllBooks() {
   const books = [
     {
@@ -10,7 +11,11 @@ function AllBooks() {
     },
     { name: "Nanak Prakaash (Vol. 2)" },
     { name: "Raas 11" },
-    { name: "Raas 12" },
+    {
+      name: "Raas 12",
+      hasNewBadge: true,
+      img: "https://www.sikhnet.com/files/styles/stories-hero/public/stories/images/main/GTB-Magical-web-Thumbnail.jpg?itok=QJiHhDDA",
+    },
     {
       name: "Rut 6",
       description:
@@ -39,14 +44,20 @@ function AllBooks() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
             {books.map((book, i) => {
               return (
-                <Link href="/book">
-                  <div key={i}>
+                <Link href="/book" key={i}>
+                  <div className="relative">
+                    {book.hasNewBadge && (
+                      <BadgeNew
+                        key={i}
+                        customClass="absolute z-10 right-0 top-0 m-2"
+                      />
+                    )}
                     <div className="bg-red-30 h-80 bg-gray-300 relative">
                       {book.img && (
                         <Image
                           src={book.img}
                           layout="fill"
-                          objectFit="contain"
+                          objectFit="cover"
                           alt="Nanak Prakash Book cover photo"
                         />
                       )}

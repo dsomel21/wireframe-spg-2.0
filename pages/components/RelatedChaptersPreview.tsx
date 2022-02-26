@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowLeftIcon } from "@heroicons/react/solid";
 interface Props {
   shouldOpen: boolean;
+  setShouldOpen: Function;
 }
 
 const nearChapters = [
@@ -37,15 +38,16 @@ const nearChapters = [
   },
 ];
 
-export default function RealtedChaptersPreview({ shouldOpen }: Props) {
-  const [open, setOpen] = useState(shouldOpen);
-
+export default function RealtedChaptersPreview({
+  shouldOpen,
+  setShouldOpen,
+}: Props) {
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition.Root show={shouldOpen} as={Fragment}>
       <Dialog
         as="div"
         className="fixed z-10 inset-0 overflow-y-auto"
-        onClose={() => setOpen(false)}
+        onClose={() => setShouldOpen(false)}
       >
         <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <Transition.Child
@@ -130,7 +132,7 @@ export default function RealtedChaptersPreview({ shouldOpen }: Props) {
                 <button
                   type="button"
                   className="inline-flex justify-center w-full border-2 uppercase bg-white border-black shadow-sm px-4 py-2 text-base font-medium focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-indigo-900 sm:text-sm"
-                  onClick={() => setOpen(false)}
+                  onClick={() => setShouldOpen(false)}
                 >
                   Close
                 </button>

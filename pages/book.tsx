@@ -18,6 +18,7 @@ function Book() {
     number: number;
     longDescription?: string;
     link: string;
+    setOpenPreview: Function;
   }
   const [openPreview, setOpenPreview] = useState(false);
   const [chapterInfo, setChapterInfo] = useState<ChapterInfo>(null);
@@ -31,23 +32,23 @@ function Book() {
       <div className="hidden relative md:flex w-full h-80 bg-gradient-to-b from-[#C4C4C4] to-transparent"></div>
       {/* Page */}
       <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto flex flex-col md:max-w-4xl lg:flex-row lg:justify-between lg:space-x-3">
+        <div className="max-w-3xl xl:max-w-5xl mx-auto flex flex-col md:max-w-4xl lg:flex-row lg:justify-between lg:space-x-3">
           <div className="lg:w-2/5 lg:h-full lg:flex lg:flex-col lg:justify-center">
             {/* Header Image */}
             <div className="flex flex-col items-center lg:flex-col-reverse">
-              <div className="flex justify-center">
-                <div className="rounded-full h-60 w-60 bg-gray-300 relative">
+              <div className="flex justify-center w-full">
+                <div className="rounded-full h-60 w-60 bg-gray-300 relative lg:rounded-none lg:w-full lg:h-96">
                   <Image
                     src="https://i.ibb.co/LNvxVQW/Screen-Shot-2022-02-05-at-1-27-14-PM.png"
                     layout="fill"
                     objectFit="cover"
                     alt="Nanak Prakash Book cover photo"
-                    className="rounded-full"
+                    className="rounded-full lg:rounded-none"
                   />
                 </div>
               </div>
-              <div className="mt-10 lg:mt-0 lg:mb-10 lg:space-y-3">
-                <h1 className="text-3xl font-serif">
+              <div className="mt-10 lg:mt-0 lg:mb-10 lg:space-y-3 text-justify">
+                <h1 className="text-3xl font-serif italic">
                   Sri Nanak Prakash (Vol. 1)
                 </h1>
                 <div className="hidden lg:block">
@@ -63,7 +64,7 @@ function Book() {
             </div>
 
             {/* Description */}
-            <div className="my-10 w-full">
+            <div className="my-10 w-full text-justify">
               <div className="mb-3">
                 <p className="text-gray-800 lg:hidden">
                   This is the <strong>short</strong> description. Perhaps we can
@@ -118,6 +119,7 @@ function Book() {
                           link: "/chapter",
                           number: 1,
                           bookName: "Nanak Prakaash (Vol. 1)",
+                          setOpenPreview,
                         });
                       }}
                     >

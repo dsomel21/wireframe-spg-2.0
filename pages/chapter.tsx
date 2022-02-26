@@ -7,9 +7,10 @@ import {
 } from "@heroicons/react/solid";
 import Link from "next/link";
 import RealtedChaptersPreview from "./components/RelatedChaptersPreview";
+import { useState } from "react";
 
 function Chapter() {
-  console.log(content.chhands);
+  const [openPreview, setOpenPreview] = useState(false);
   return (
     <>
       <div className="fixed top-0 w-full">
@@ -93,19 +94,25 @@ function Chapter() {
           <div className="max-w-3xl mx-auto">
             {/* Menu Bar */}
             <div className="flex py-3 font-serif text-lg justify-around">
-              <div className="cursor-pointer flex flex-col items-center">
+              <button
+                className="cursor-pointer flex flex-col items-center"
+                onClick={() => setOpenPreview(true)}
+              >
                 <NewspaperIcon className="h-8 w-8 cursor-pointer" />
                 <p className="font-sans text-xs">Chapters</p>
-              </div>
-              <div className="cursor-pointer flex flex-col items-center">
+              </button>
+              <button className="cursor-pointer flex flex-col items-center">
                 <CogIcon className="h-8 w-8 cursor-pointer" />
                 <p className="font-sans text-xs">Settings</p>
-              </div>
+              </button>
             </div>
           </div>
         </div>
       </div>
-      <RealtedChaptersPreview shouldOpen={true} />
+      <RealtedChaptersPreview
+        shouldOpen={openPreview}
+        setShouldOpen={setOpenPreview}
+      />
     </>
   );
 }
