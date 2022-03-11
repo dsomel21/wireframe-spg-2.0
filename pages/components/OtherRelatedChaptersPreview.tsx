@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { ExclamationIcon, XIcon } from "@heroicons/react/outline";
+import { BookOpenIcon, XIcon } from "@heroicons/react/outline";
 
 interface Props {
   shouldOpen: boolean;
@@ -88,17 +88,17 @@ function OtherRelatedChaptersPreview({ shouldOpen, setShouldOpen }: Props) {
                   </button>
                 </div>
 
-                {/* ExclamationIcon + Title */}
-                <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                  <ExclamationIcon
-                    className="h-6 w-6 text-red-600"
+                {/* BookOpenIcon + Title */}
+                <div className="mx-auto flex-shrink-0 hidden sm:flex items-center justify-center h-12 w-12 rounded-full bg-amber-100 sm:mx-0 sm:h-10 sm:w-10">
+                  <BookOpenIcon
+                    className="h-6 w-6 text-amber-600"
                     aria-hidden="true"
                   />
                 </div>
                 <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                   <Dialog.Title
                     as="h3"
-                    className="text-lg leading-6 font-medium text-gray-900"
+                    className="text-xl leading-6 text-gray-900 font-serif mt-1"
                   >
                     All Chapters
                   </Dialog.Title>
