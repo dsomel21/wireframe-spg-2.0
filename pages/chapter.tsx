@@ -6,7 +6,8 @@ import {
   CogIcon,
 } from "@heroicons/react/solid";
 import Link from "next/link";
-import RealtedChaptersPreview from "./components/RelatedChaptersPreview";
+import RelatedChaptersPreview from "./components/RelatedChaptersPreview";
+import OtherRelatedChaptersPreview from "./components/OtherRelatedChaptersPreview";
 import { useState } from "react";
 
 function Chapter() {
@@ -109,7 +110,13 @@ function Chapter() {
           </div>
         </div>
       </div>
-      <RealtedChaptersPreview
+      {/* 
+      <RelatedChaptersPreview
+        shouldOpen={openPreview}
+        setShouldOpen={setOpenPreview}
+      />
+     */}
+      <OtherRelatedChaptersPreview
         shouldOpen={openPreview}
         setShouldOpen={setOpenPreview}
       />

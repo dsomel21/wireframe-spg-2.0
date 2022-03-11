@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import Link from "next/link";
 interface Props {
@@ -7,15 +7,12 @@ interface Props {
   chapter: object;
 }
 export default function ChapterPreview({ shouldOpen, chapter }: Props) {
-  const [open, setOpen] = useState(shouldOpen);
-
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition.Root show={shouldOpen} as={Fragment}>
       <Dialog
         as="div"
         className="fixed z-10 inset-0 overflow-y-auto"
         onClose={() => {
-          setOpen(false);
           chapter.setOpenPreview(false);
         }}
       >
@@ -90,7 +87,7 @@ export default function ChapterPreview({ shouldOpen, chapter }: Props) {
                   <button
                     type="button"
                     className="inline-flex justify-center w-full border-2 uppercase bg-white border-black shadow-sm px-4 py-2 text-base font-medium focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-indigo-900 sm:text-sm"
-                    onClick={() => setOpen(false)}
+                    onClick={() => chapter.setOpenPreview(false)}
                   >
                     Read
                   </button>

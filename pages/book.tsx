@@ -21,13 +21,11 @@ function Book() {
     setOpenPreview: Function;
   }
   const [openPreview, setOpenPreview] = useState(false);
-  const [chapterInfo, setChapterInfo] = useState<ChapterInfo>(null);
+  const [chapterInfo, setChapterInfo] = useState<ChapterInfo>({});
 
   return (
     <>
-      {openPreview && (
-        <ChapterPreview shouldOpen={openPreview} chapter={chapterInfo} />
-      )}
+      <ChapterPreview shouldOpen={openPreview} chapter={chapterInfo} />
       {/* Header Picture */}
       <div className="hidden relative md:flex w-full h-80 bg-gradient-to-b from-[#C4C4C4] to-transparent"></div>
       {/* Page */}

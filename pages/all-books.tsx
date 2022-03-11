@@ -69,9 +69,12 @@ function AllBooks() {
                           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a arcu sed mauris feugiat luctus sit amet ut."}
                       </p>
                       {/* DO NOT actually do this... Just keep it like this for the purpose of the wireframe demo */}
+
+                      {/* 
                       <button className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all hidden sm:flex">
                         Read
                       </button>
+                      */}
                     </div>
                   </div>
                 </Link>
