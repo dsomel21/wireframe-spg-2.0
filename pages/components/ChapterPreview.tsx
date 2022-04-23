@@ -2,9 +2,19 @@
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import Link from "next/link";
+
+interface ChapterInfo {
+  name: string;
+  bookName: string;
+  number: number;
+  longDescription?: string;
+  link: string;
+  setOpenPreview: Function;
+}
+
 interface Props {
   shouldOpen: boolean;
-  chapter: object;
+  chapter: ChapterInfo;
 }
 export default function ChapterPreview({ shouldOpen, chapter }: Props) {
   return (
@@ -62,28 +72,28 @@ export default function ChapterPreview({ shouldOpen, chapter }: Props) {
                     <p className="text-md text-gray-800 text-justify">
                       The occasion of the first full moon night during the lunar
                       month of Kartik, marks a very auspicious occasion for not
-                      only the 'Sikh' faith, but for all other faiths in this
-                      world.
+                      only the &#39;Sikh&#39; faith, but for all other faiths in
+                      this world.
                     </p>
                     <p className="text-md text-gray-800 text-justify">
-                      Today's date marks the 550th Anniversary of the
+                      Today&#39;s date marks the 550th Anniversary of the
                       incarnation of Pūran Ŧam Avṯār; Saṯigurū Nanak Dev Ji, who
                       took birth upon this Earth, to guide us outside of the
-                      dark age of 'Kali Yuga'. Sri Guru Nanak Dev Ji were the
-                      physical embodiment of the divine light of the 'Gurū';
-                      which unparalleled the knowledge of Ek Oaŉkār to the
-                      people of this world. Although the truth has always
-                      existed, exists now, and will continue to exist; Guru
-                      Nanak Dev Ji acted as the messenger of this universal
+                      dark age of &#39;Kali Yuga&#39;. Sri Guru Nanak Dev Ji
+                      were the physical embodiment of the divine light of the
+                      &#39;Gurū&#39;; which unparalleled the knowledge of Ek
+                      Oaŉkār to the people of this world. Although the truth has
+                      always existed, exists now, and will continue to exist;
+                      Guru Nanak Dev Ji acted as the messenger of this universal
                       truth, when the world had seemingly forgotten about
-                      'Dharma'.
+                      &#39;Dharma&#39;.
                     </p>
                   </div>
                 </div>
               </div>
               <div className="mt-5 sm:mt-6 sticky bottom-0">
                 {/* NOTE: DO NOT ACTUALLY DO THIS */}
-                <Link href={chapter.link}>
+                <Link href={chapter.link} passHref>
                   <button
                     type="button"
                     className="inline-flex justify-center w-full border-2 uppercase bg-white border-black shadow-sm px-4 py-2 text-base font-medium focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-indigo-900 sm:text-sm"

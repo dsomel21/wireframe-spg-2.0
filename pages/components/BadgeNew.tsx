@@ -1,4 +1,9 @@
-function BadgeNew({ message, customClass }) {
+interface Props {
+  message?: string;
+  customClass?: string;
+}
+
+function BadgeNew({ message, customClass }: Props) {
   return (
     <span
       className={`inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800 ${customClass}`}

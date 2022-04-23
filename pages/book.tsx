@@ -21,7 +21,7 @@ function Book() {
     setOpenPreview: Function;
   }
   const [openPreview, setOpenPreview] = useState(false);
-  const [chapterInfo, setChapterInfo] = useState<ChapterInfo>({});
+  const [chapterInfo, setChapterInfo] = useState<ChapterInfo>();
 
   return (
     <>

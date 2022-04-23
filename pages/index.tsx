@@ -74,7 +74,7 @@ export default function Home() {
                 );
               })}
             </div>
-            <Link href="/all-books">
+            <Link href="/all-books" passHref>
               <button
                 type="submit"
                 className="border-2 uppercase w-full sm:w-auto border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all"

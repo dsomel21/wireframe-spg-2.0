@@ -44,7 +44,7 @@ function AllBooks() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
             {books.map((book, i) => {
               return (
-                <Link href="/book" key={i}>
+                <Link href="/book" key={i} passHref>
                   <div className="relative">
                     {book.hasNewBadge && (
                       <BadgeNew
