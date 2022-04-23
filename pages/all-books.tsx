@@ -105,7 +105,7 @@ function AllBooks() {
                 />
                 <button
                   type="submit"
-                  className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all hidden sm:flex"
+                  className="bg-white border-2 uppercase border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all hidden sm:flex sm:justify-center"
                 >
                   Submit
                 </button>

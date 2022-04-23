@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 
 const books = [
   {
@@ -73,6 +74,14 @@ export default function Home() {
                 );
               })}
             </div>
+            <Link href="/all-books">
+              <button
+                type="submit"
+                className="border-2 uppercase w-full sm:w-auto border-black shadow-sm px-16 py-2 my-5 hover:shadow-md transition-all"
+              >
+                See All Books
+              </button>
+            </Link>
           </section>
 
           <section className="my-8">

@@ -14,11 +14,11 @@ function Chapter() {
   const [openPreview, setOpenPreview] = useState(false);
   return (
     <>
-      <div className="fixed top-0 w-full">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full bg-white">
+        {/* Menu Bar */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
           <div className="max-w-3xl mx-auto">
-            {/* Menu Bar */}
-            <div className="flex py-3 bg-white font-serif text-lg justify-between">
+            <div className="flex py-3 font-serif text-lg justify-between">
               <Link href="all-books">All Books</Link>
               <h2 className="font-semibold italic">Suraj Prakaash Granth</h2>
             </div>
