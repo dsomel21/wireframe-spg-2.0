@@ -6,8 +6,8 @@ import {
   CogIcon,
 } from "@heroicons/react/solid";
 import Link from "next/link";
-import RelatedChaptersPreview from "./components/RelatedChaptersPreview";
-import OtherRelatedChaptersPreview from "./components/OtherRelatedChaptersPreview";
+// import RelatedChaptersPreview from "../components/RelatedChaptersPreview";
+import OtherRelatedChaptersPreview from "../components/OtherRelatedChaptersPreview";
 import { useState } from "react";
 
 function Chapter() {

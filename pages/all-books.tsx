@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import BadgeNew from "./components/BadgeNew";
+import BadgeNew from "../components/BadgeNew";
 function AllBooks() {
   const books = [
     {
