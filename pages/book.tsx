@@ -1,31 +1,29 @@
 import Image from "next/image";
 import { useState } from "react";
-import ChapterPreview from "./components/ChapterPreview";
+import ChapterPreview from "../components/ChapterPreview";
 
-const chapters = [
-  "Manglacharan",
-  "Continued Manglacharan. Pilot of the documents. Meeting of Bhai Bala and Guru Anagad Dev Ji",
-  "The Avtaar of the Supreme Guru Nanak Dev Ji",
-  "The Gurus Avtaar and Their Blessed Name",
-  "Guru Nanak Dev Ji's Childhood",
-  "Gopaal Paandhe's Message",
-];
-
-function Book() {
+function Book(props) {
+  debugger;
   interface ChapterInfo {
-    name: string;
-    bookName: string;
+    id: number;
     number: number;
-    longDescription?: string;
-    link: string;
+    order_number: number;
+    title_unicode: string;
+    title_gs: string;
+    title_transliteration_english: string;
+    description_english: string;
+    title_translation: string;
+    artwork_url: string;
     setOpenPreview: Function;
+    bookName: string;
   }
   const [openPreview, setOpenPreview] = useState(false);
-  const [chapterInfo, setChapterInfo] = useState<ChapterInfo>();
+  const [chapterInfo, setChapterInfo] = useState<ChapterInfo>(null);
 
   return (
     <>
       <ChapterPreview shouldOpen={openPreview} chapter={chapterInfo} />
+
       {/* Header Picture */}
       <div className="hidden relative md:flex w-full h-80 bg-gradient-to-b from-[#C4C4C4] to-transparent"></div>
       {/* Page */}
@@ -61,7 +59,7 @@ function Book() {
               </div>
             </div>
 
-            {/* Description */}
+            {/* Book Description */}
             <div className="my-10 w-full text-justify">
               <div className="mb-3">
                 <p className="text-gray-800 lg:hidden">
@@ -101,7 +99,7 @@ function Book() {
           <div className="lg:w-3/5 lg:pl-8">
             <h2 className="font-serif text-2xl">Chapters</h2>
             {/* Chapters */}
-            {chapters.map((title, i) => {
+            {props.chapters.map((chapter, i) => {
               return (
                 <div
                   className="flex space-x-2 border-black border-b-2 py-4 items-center justify-between"
@@ -113,22 +111,28 @@ function Book() {
                       onClick={() => {
                         setOpenPreview(true);
                         setChapterInfo({
-                          name: title,
-                          link: "/chapter",
-                          number: 1,
-                          bookName: "Nanak Prakaash (Vol. 1)",
+                          ...chapter,
+                          bookName: "Rut 6",
                           setOpenPreview,
                         });
                       }}
                     >
-                      {title}
+                      {chapter?.title_translation}
                     </p>
                     <p>
                       Kavi Santokh Singh, the master poet begins the invocation
                       for Nanak Prakaash.
                     </p>
                   </div>
-                  <div className="bg-gray-300 w-[119px] h-[123px] min-w-[119px]"></div>
+                  <Image
+                    src={chapter.artwork_url}
+                    decoding="async"
+                    height={123}
+                    width={119}
+                    objectFit="cover"
+                    loading="lazy"
+                    alt={`Artwork for chapter ${chapter.number}`}
+                  />
                 </div>
               );
             })}
@@ -137,6 +141,23 @@ function Book() {
       </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  // Call an external API endpoint to get posts.
+  // You can use any data fetching library
+  const res = await fetch("http://localhost:1469/api/v1/chamkaur");
+  const resJson = await res.json();
+
+  console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+  // console.log(resJson.chapters);
+  // By returning { props: { chapters } }, the Blog component
+  // will receive `chapters` as a prop at build time
+  return {
+    props: {
+      chapters: resJson.chapters,
+    },
+  };
 }
 
 export default Book;
