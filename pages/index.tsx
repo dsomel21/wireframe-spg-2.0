@@ -25,21 +25,16 @@ const books = [
 ];
 
 export default function Home() {
-  const [showLeftButton, setShowLeftButton] = useState(true);
-  const [showRightButton, setShowRightButton] = useState(true);
-  let [scroll, setScroll] = useState(0);
+  const [scroll, setScroll] = useState(0);
   const snapContainer = useRef(null);
 
-  useEffect(() => {
-    if (scroll < 10) {
-      setShowLeftButton(false);
-    } else if (scroll > snapContainer.current.scrollWidth - 600) {
-      setShowRightButton(false);
-    } else {
-      setShowLeftButton(true);
-      setShowRightButton(true);
-    }
-  }, [scroll]);
+  let showLeftButton = true;
+  let showRightButton = true;
+  if (scroll < 10) {
+    showLeftButton = false;
+  } else if (scroll > snapContainer.current.scrollWidth - 600) {
+    showRightButton = false;
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
