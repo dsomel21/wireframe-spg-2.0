@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const books = [
   {
@@ -25,20 +25,22 @@ const books = [
 ];
 
 export default function Home() {
-  const [showLeftButton, setShowLeftButton] = useState(false);
+  const [showLeftButton, setShowLeftButton] = useState(true);
   const [showRightButton, setShowRightButton] = useState(true);
+  let [scroll, setScroll] = useState(0);
+  const snapContainer = useRef(null);
 
   useEffect(() => {
-    const snapContainer = document.querySelector("#snap-container");
-    if (snapContainer.scrollLeft === 0) {
+    if (scroll < 10) {
       setShowLeftButton(false);
-      // } else if (snapContainer.scrollLeft === snapContainer.scrollLeftMax) {
-      //   setShowRightButton(false);
+    } else if (scroll > snapContainer.current.scrollWidth - 600) {
+      setShowRightButton(false);
     } else {
       setShowLeftButton(true);
-      setShowRightButton(false);
+      setShowRightButton(true);
     }
-  }, [document?.querySelector("#snap-container").scrollLeft]);
+  }, [scroll]);
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
       {/* We've used 3xl here, but feel free to try other max-widths based on your needs */}
@@ -83,20 +85,25 @@ export default function Home() {
                 </button>
               )}
 
-              <button
-                className="absolute p-4 rounded-full bg-black top-1/4 right-10 z-10 text-white"
-                onClick={() => {
-                  const width =
-                    document.querySelector(".chapter-slide").clientWidth;
-                  document.querySelector("#snap-container").scrollLeft += width;
-                }}
-              >
-                ➜
-              </button>
+              {showRightButton && (
+                <button
+                  className="absolute p-4 rounded-full bg-black top-1/4 right-10 z-10 text-white"
+                  onClick={() => {
+                    const width =
+                      document.querySelector(".chapter-slide").clientWidth;
+                    document.querySelector("#snap-container").scrollLeft +=
+                      width;
+                  }}
+                >
+                  ➜
+                </button>
+              )}
 
               <div
                 className="scroll-smooth relative w-full flex snap-x snap-mandatory overflow-x-auto pb-14"
+                ref={snapContainer}
                 id="snap-container"
+                onScroll={(e) => setScroll(e.currentTarget.scrollLeft)}
               >
                 {books.map((book, i) => {
                   return (
