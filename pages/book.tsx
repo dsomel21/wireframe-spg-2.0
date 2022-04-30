@@ -3,7 +3,6 @@ import { useState } from "react";
 import ChapterPreview from "../components/ChapterPreview";
 
 function Book(props) {
-  debugger;
   interface ChapterInfo {
     id: number;
     number: number;

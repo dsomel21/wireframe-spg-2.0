@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 const books = [
   {
@@ -24,6 +25,20 @@ const books = [
 ];
 
 export default function Home() {
+  const [showLeftButton, setShowLeftButton] = useState(false);
+  const [showRightButton, setShowRightButton] = useState(true);
+
+  useEffect(() => {
+    const snapContainer = document.querySelector("#snap-container");
+    if (snapContainer.scrollLeft === 0) {
+      setShowLeftButton(false);
+      // } else if (snapContainer.scrollLeft === snapContainer.scrollLeftMax) {
+      //   setShowRightButton(false);
+    } else {
+      setShowLeftButton(true);
+      setShowRightButton(false);
+    }
+  }, [document?.querySelector("#snap-container").scrollLeft]);
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
       {/* We've used 3xl here, but feel free to try other max-widths based on your needs */}
@@ -53,26 +68,56 @@ export default function Home() {
           <section className="mt-12">
             <h2 className="text-2xl font-serif text-center my-4">All Books</h2>
 
-            <div className="relative w-full flex snap-x snap-mandatory overflow-x-auto pb-14">
-              {books.map((book, i) => {
-                return (
-                  <div
-                    className="snap-center shrink-0 w-96 h-[347px] mx-2.5"
-                    key={i}
-                  >
+            <div className="relative w-full">
+              {showLeftButton && (
+                <button
+                  className="absolute p-4 rounded-full bg-black top-1/4 left-10 z-10 text-white"
+                  onClick={() => {
+                    const width =
+                      document.querySelector(".chapter-slide").clientWidth;
+                    document.querySelector("#snap-container").scrollLeft -=
+                      width;
+                  }}
+                >
+                  ←
+                </button>
+              )}
+
+              <button
+                className="absolute p-4 rounded-full bg-black top-1/4 right-10 z-10 text-white"
+                onClick={() => {
+                  const width =
+                    document.querySelector(".chapter-slide").clientWidth;
+                  document.querySelector("#snap-container").scrollLeft += width;
+                }}
+              >
+                ➜
+              </button>
+
+              <div
+                className="scroll-smooth relative w-full flex snap-x snap-mandatory overflow-x-auto pb-14"
+                id="snap-container"
+              >
+                {books.map((book, i) => {
+                  return (
                     <div
-                      className={`bg-gray-${i + 1}00 w-full h-[194px]`}
-                    ></div>
-                    <div className="text-center p-2">
-                      <h6 className="font-serif my-2 text-xl">{book.name}</h6>
-                      <p className="line-clamp-4">
-                        {book.description ||
-                          "This book is great. It's about one of the Gurus"}
-                      </p>
+                      className="chapter-slide snap-center shrink-0 w-96 h-[347px] mx-2.5"
+                      key={i}
+                    >
+                      <div
+                        className={`bg-gray-${i + 1}00 w-full h-[194px]`}
+                      ></div>
+                      <div className="text-center p-4">
+                        <h6 className="font-serif my-2 text-xl">{book.name}</h6>
+                        <p className="line-clamp-4">
+                          {book.description ||
+                            "This book is great. It's about one of the Gurus"}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
             <Link href="/all-books" passHref>
               <button
